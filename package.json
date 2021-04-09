@@ -4,7 +4,8 @@
   "description": "This guess your personality by seeing the things you hear ion spotify",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [
     "node",
@@ -14,10 +15,13 @@
   "author": "Alfredo Vanegas Arcega",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
-    "querystring": "^0.2.1"
+    "querystring": "^0.2.1",
+    "spotify-web-api-node": "^5.0.2"
   }
 }
