@@ -4,9 +4,10 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = 'CLIENT_ID'; // Your client id
-var client_secret = 'CLIENT_SECRET'; // Your secret
-var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
+/* Spotify api */
+//Node ENV variables
+const { clientId, clientSecret, scope} = require('../config');
+var redirectUri = 'http://localhost:3000/auth/callback';
 
 /**
  * Generates a random string containing numbers and letters
@@ -33,17 +34,17 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/login', function(req, res) {
 
+  console.log("Login requested")
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
   // your application requests authorization
-  var scope = 'user-read-private user-read-email';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
-      client_id: client_id,
+      client_id: clientId,
       scope: scope,
-      redirect_uri: redirect_uri,
+      redirect_uri: redirectUri,
       state: state
     }));
 });
@@ -68,11 +69,11 @@ app.get('/callback', function(req, res) {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: redirect_uri,
+        redirect_uri: redirectUri,
         grant_type: 'authorization_code'
       },
       headers: {
-        'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+        'Authorization': 'Basic ' + (new Buffer(clientId + ':' + clientSecret).toString('base64'))
       },
       json: true
     };
@@ -94,6 +95,7 @@ app.get('/callback', function(req, res) {
           console.log(body);
         });
 
+        res.cookie('accessToken', access_token);
         // we can also pass the token to the browser to make requests from there
         res.redirect('/#' +
           querystring.stringify({
@@ -116,7 +118,7 @@ app.get('/refresh_token', function(req, res) {
   var refresh_token = req.query.refresh_token;
   var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
-    headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
+    headers: { 'Authorization': 'Basic ' + (new Buffer(clientId + ':' + clientSecret).toString('base64')) },
     form: {
       grant_type: 'refresh_token',
       refresh_token: refresh_token
@@ -133,3 +135,5 @@ app.get('/refresh_token', function(req, res) {
     }
   });
 });
+
+module.exports = app;
