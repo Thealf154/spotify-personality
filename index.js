@@ -1,22 +1,22 @@
 //Load dependencies
-const express = require('express');
+const express = require("express");
 const app = express();
 //Middleware
-const cors = require('./middleware/cors')
-const index = require('./middleware/index')
+const cors = require("./middleware/cors");
+const index = require("./middleware/index");
 //Routes
-const getAuthorization = require('./routes/getAuthorization')
-const getUsersTop = require('./routes/getUsersTop');
+const getAuthorization = require("./routes/getAuthorization");
+const getUsersTop = require("./routes/getUsersTop");
 
 app.use(cors);
 app.use(express.json());
-app.use(express.urlencoded({encoded: true}))
+app.use(express.urlencoded({ encoded: true }));
 
 //Import routes
 app.get("/", index);
-app.use('/auth', getAuthorization);
-app.use('/getUsersTop', getUsersTop);
+app.use("/auth", getAuthorization);
+app.use("/getUsersTop", getUsersTop);
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log("Server is running...");
-  });
+  console.log("Server is running...");
+});

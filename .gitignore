@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/data
 
 # production
 /build
@@ -22,3 +23,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+spotify-personality.code-workspace
+node_modules
