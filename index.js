@@ -2,13 +2,11 @@
 const express = require("express");
 const app = express();
 //Middleware
-const cors = require("./middleware/cors");
 const index = require("./middleware/index");
 //Routes
 const getAuthorization = require("./routes/getAuthorization");
 const getUsersTop = require("./routes/getUsersTop");
 
-app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({ encoded: true }));
 
