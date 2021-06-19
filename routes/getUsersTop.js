@@ -3,15 +3,15 @@ var SpotifyWebApi = require("spotify-web-api-node");
 var express = require("express");
 var cookieParser = require("cookie-parser");
 var getUsersTop = express.Router();
-getUsersTop.use(cookieParser());
-//Node ENV
-const { clientId, clientSecret, redirectUri} = require("../config");
+var cors = require('cors');
 
 var spotifyApi = new SpotifyWebApi();
 
-getUsersTop.get("/getTopArtists", (req, res, next) => {
-  let cookies = JSON.parse(JSON.stringify(req.cookies));
-  spotifyApi.setAccessToken(cookies.accessToken);
+getUsersTop.use(cors())
+
+getUsersTop.post("/getTopArtists", (req, res, next) => {
+  console.log(req.body.accessToken);
+  spotifyApi.setAccessToken(req.body.accessToken);
   spotifyApi.getMyTopArtists().then(
     function (data) {
       let topArtists = data.body.items;
@@ -25,9 +25,8 @@ getUsersTop.get("/getTopArtists", (req, res, next) => {
   );
 });
 
-getUsersTop.get("/getTopSongs", () => {
-  let cookies = JSON.parse(JSON.stringify(req.cookies));
-  spotifyApi.setAccessToken(cookies.accessToken);
+getUsersTop.post("/getTopSongs", (req,res,next) => {
+  spotifyApi.setAccessToken(req.body.accessToken);
   spotifyApi.getMyTopTracks().then(
     function (data) {
       let topTracks = data.body.items;
