@@ -98,7 +98,6 @@ app.get("/callback", function (req, res) {
           console.log(body);
         });
 
-        res.cookie("accessToken", access_token);
         res.cookie("accessToken", access_token, {
           domain: "http://localhost:3006/",
           secure: true,
