@@ -3,6 +3,7 @@ import RadarChart from "react-svg-radar-chart";
 import Loading from "./loading";
 import "react-svg-radar-chart/build/css/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/spiderGraph.css";
 
 const SpiderGraph = (props) => {
   const [personalityType, setPersonaliltyType] = useState();
@@ -10,6 +11,15 @@ const SpiderGraph = (props) => {
   const [captions, setCaptions] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  const options = {
+    captionMargin: 30,
+    captionProps: () => ({
+      className: "caption",
+      textAnchor: "middle",
+      fontSize: 15,
+      fontFamily: "sans-serif",
+    }),
+  };
   // What type of people love this genre?
   const genresPersonality = {
     punk: "ISTP",
@@ -223,18 +233,24 @@ const SpiderGraph = (props) => {
 
     usersData[0]["data"] = rawData;
     setData(usersData);
+    props.onPersonalityAnalysis(data)
 
     setIsLoading(false);
-  }, [props]);
+  }, [props.topArtists]);
 
   return (
     <div>
       {isLoading ? (
         <Loading />
       ) : (
-        <div>
-          <RadarChart captions={captions} data={data} size={500} />
-          <p>{personalityType}</p>
+        <div id="analysis-container">
+          <RadarChart
+            captions={captions}
+            data={data}
+            size={500}
+            options={options}
+          />
+          <p id="personality-type">Personality: {personalityType}</p>
         </div>
       )}
     </div>

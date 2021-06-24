@@ -90,20 +90,27 @@ const PersonalityPage = (props) => {
 
   const handlePersonalityData = (data) => {
     setPersonalityData(data);
-  }
+  };
 
   return (
     <Fragment>
       {isLoading ? (
         <Loading />
       ) : (
-        <SpiderGraph
-          topArtists={topArtists}
-          topSongs={topSongs}
-          audioAnalysis={audioAnalysis}
-          userInformation={userInformation}
-          onPersonalityAnalysis={handlePersonalityData}
-        />
+        <div className="row">
+          <div className="col-xl-4">
+            <SpiderGraph
+              topArtists={topArtists}
+              topSongs={topSongs}
+              audioAnalysis={audioAnalysis}
+              userInformation={userInformation}
+              onPersonalityAnalysis={handlePersonalityData}
+            />
+          </div>
+          <div className="col-xl-8">
+            {JSON.stringify(personalityData[0].data)}
+          </div>
+        </div>
       )}
     </Fragment>
   );
