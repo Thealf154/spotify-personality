@@ -108,7 +108,7 @@ const PersonalityPage = (props) => {
             />
           </div>
           <div className="col-xl-8">
-            {JSON.stringify(personalityData[0].data)}
+            {JSON.stringify(personalityData)}
           </div>
         </div>
       )}

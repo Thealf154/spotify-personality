@@ -228,7 +228,7 @@ const SpiderGraph = (props) => {
 
     Object.entries(rawData).forEach((element) => {
       let name = element[0];
-      rawData[name] = (Math.abs(element[1]) * 4) / 100;
+      rawData[name] = (Math.abs(element[1]) * 3) / 100;
     });
 
     usersData[0]["data"] = rawData;
