@@ -1,9 +1,9 @@
 //Dependencies
 var SpotifyWebApi = require("spotify-web-api-node");
 var express = require("express");
-var cookieParser = require("cookie-parser");
-var getUsersTop = express.Router();
 var cors = require("cors");
+var axios = require("axios");
+var getUsersTop = express.Router();
 
 var spotifyApi = new SpotifyWebApi();
 
@@ -12,7 +12,7 @@ getUsersTop.use(cors());
 getUsersTop.post("/getTopArtists", (req, res, next) => {
   console.log("Request Artists");
   spotifyApi.setAccessToken(req.body.accessToken);
-  spotifyApi.getMyTopArtists().then(
+  spotifyApi.getMyTopArtists({ limit: 50, offset: 20 }).then(
     function (data) {
       return res.status(200).json(data.body.items);
     },
@@ -25,7 +25,7 @@ getUsersTop.post("/getTopArtists", (req, res, next) => {
 
 getUsersTop.post("/getTopSongs", (req, res, next) => {
   spotifyApi.setAccessToken(req.body.accessToken);
-  spotifyApi.getMyTopTracks().then(
+  spotifyApi.getMyTopTracks({ limit: 70, offset: 20 }).then(
     function (data) {
       return res.status(200).json(data.body.items);
     },

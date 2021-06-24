@@ -8,11 +8,13 @@ import "../css/spiderGraph.css";
 const SpiderGraph = (props) => {
   const [personalityType, setPersonaliltyType] = useState();
   const [data, setData] = useState();
+  const [rawData, setRawData] = useState();
   const [captions, setCaptions] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   const options = {
     captionMargin: 30,
+    scales: 4,
     captionProps: () => ({
       className: "caption",
       textAnchor: "middle",
@@ -30,12 +32,12 @@ const SpiderGraph = (props) => {
     reggae: "ISFP",
     ambient: "ISFP",
     folk: "INFJ",
-    pop: "ESFP",
-    metal: "ESTP",
+    pop: "ENFP",
+    metal: "INTJ",
     hop: "ESTJ",
-    electro: "ENTP",
+    electro: "ESTP",
     religious: "ISFJ",
-    blues: "ENFJ",
+    blues: "ENFP",
     country: "ESFJ",
     soul: "ESFP",
   };
@@ -226,14 +228,17 @@ const SpiderGraph = (props) => {
     let personalityType = getPersonalityType(captions);
     setPersonaliltyType(personalityType);
 
+    // Set values to positive and scale it
     Object.entries(rawData).forEach((element) => {
       let name = element[0];
-      rawData[name] = (Math.abs(element[1]) * 3) / 100;
+      rawData[name] = Math.abs(element[1] * 1.3) / 100;
     });
+
+    setRawData(rawData);
 
     usersData[0]["data"] = rawData;
     setData(usersData);
-    props.onPersonalityAnalysis(data)
+    props.onPersonalityAnalysis(genresCount);
 
     setIsLoading(false);
   }, [props.topArtists]);
@@ -251,6 +256,10 @@ const SpiderGraph = (props) => {
             options={options}
           />
           <p id="personality-type">Personality: {personalityType}</p>
+          <p id>Mind: {parseFloat(rawData.mind).toFixed(3)}</p>
+          <p id>Energy: {parseFloat(rawData.energy).toFixed(3)}</p>
+          <p id>Nature: {parseFloat(rawData.nature).toFixed(3)}</p>
+          <p id>Tactics: {parseFloat(rawData.tactics).toFixed(3)}</p>
         </div>
       )}
     </div>
