@@ -6,8 +6,7 @@ var cookieParser = require("cookie-parser");
 
 /* Spotify api */
 //Node ENV variables
-const { clientId, clientSecret, scope } = require("../config");
-var redirectUri = "http://localhost:3000/auth/callback";
+const { clientId, clientSecret, scope, redirectUri } = require("../config");
 
 /**
  * Generates a random string containing numbers and letters
