@@ -28,11 +28,9 @@ var stateKey = "spotify_auth_state";
 
 var app = express();
 
-app
-  .use(express.static(__dirname + "/public"))
-  .use(cookieParser());
+app.use(express.static(__dirname + "/public")).use(cookieParser());
 
-app.use(cors())
+app.use(cors());
 
 app.get("/login", function (req, res) {
   console.log("Login requested");
@@ -101,6 +99,12 @@ app.get("/callback", function (req, res) {
         });
 
         res.cookie("accessToken", access_token);
+        res.cookie("accessToken", access_token, {
+          domain: "http://localhost:3006/",
+          secure: true,
+          expires: new Date(Date.now() + 300000),
+        });
+
         // we can also pass the token to the browser to make requests from there
         res.redirect(
           "http://localhost:3006/#" +
