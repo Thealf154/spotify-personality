@@ -10,11 +10,10 @@ var spotifyApi = new SpotifyWebApi();
 getUsersTop.use(cors());
 
 getUsersTop.post("/getTopArtists", (req, res, next) => {
-  console.log("Request Artists")
+  console.log("Request Artists");
   spotifyApi.setAccessToken(req.body.accessToken);
   spotifyApi.getMyTopArtists().then(
     function (data) {
-      let topArtists = data.body.items;
       return res.status(200).json(data.body.items);
     },
     function (err) {
@@ -28,7 +27,6 @@ getUsersTop.post("/getTopSongs", (req, res, next) => {
   spotifyApi.setAccessToken(req.body.accessToken);
   spotifyApi.getMyTopTracks().then(
     function (data) {
-      let topTracks = data.body.items;
       return res.status(200).json(data.body.items);
     },
     function (err) {
@@ -58,4 +56,17 @@ getUsersTop.post("/getAudioAnalysis", (req, res, next) => {
     }
   );
 });
+
+getUsersTop.post("/getMe", (req, res, next) => {
+  spotifyApi.setAccessToken(req.body.accessToken);
+  spotifyApi.getMe().then(
+    function (data) {
+      res.status(200).json(data.body);
+    },
+    function (err) {
+      console.log("Something went wrong!", err);
+    }
+  );
+});
+
 module.exports = getUsersTop;
