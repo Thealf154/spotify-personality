@@ -98,10 +98,7 @@ app.get("/callback", function (req, res) {
           console.log(body);
         });
 
-        res.cookie("accessToken", access_token, {
-          domain: "localhost",
-          secure: true
-        });
+        res.cookie("accessToken", access_token);
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(

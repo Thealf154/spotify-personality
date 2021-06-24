@@ -11,7 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ encoded: true }));
 
 //Import routes
-app.get("/", index);
 app.use("/auth", getAuthorization);
 app.use("/getUsersTop", getUsersTop);
 
