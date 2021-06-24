@@ -101,7 +101,7 @@ app.get("/callback", function (req, res) {
         res.cookie("accessToken", access_token);
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect(306,
+        res.redirect(
           "http://localhost:3006/#" +
             querystring.stringify({
               access_token: access_token,
