@@ -98,8 +98,10 @@ app.get("/callback", function (req, res) {
           console.log(body);
         });
 
-        s = body.exp.toUTCString();
-        res.cookie("accessToken", access_token, { expires: s });
+        res.cookie("accessToken", access_token, {
+          domain: "localhost",
+          secure: true
+        });
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
@@ -109,7 +111,6 @@ app.get("/callback", function (req, res) {
               refresh_token: refresh_token,
             })
         );
-
       } else {
         res.redirect(
           "/#" +
