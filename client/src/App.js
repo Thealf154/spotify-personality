@@ -34,7 +34,7 @@ const App = () => {
       let cookie = value.match(cookiestring)[0].replace("access_token=", "");
       const cookies = new Cookies();
       cookies.set("accessToken", cookie, { path: "/" });
-      window.location = "http://localhost:3006"
+      window.location = "https://thealf154.github.io/spotify-personality/"
     } 
   };
 
