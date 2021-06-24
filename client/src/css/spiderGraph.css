@@ -1,9 +1,0 @@
-#personality-type {
-    font-size: 20px;
-}
-
-#analysis-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
