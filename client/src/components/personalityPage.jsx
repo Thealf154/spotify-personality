@@ -12,9 +12,10 @@ const PersonalityPage = (props) => {
   const [topSongs, setTopSongs] = useState();
   const [topArtists, setTopArtists] = useState();
   const [audioAnalysis, setAudioAnalysis] = useState();
+  const [userInformation, setUserInformation] = useState();
+  const [personalityData, setPersonalityData] = useState();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [userInformation, setUserInformation] = useState();
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -24,6 +25,16 @@ const PersonalityPage = (props) => {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     };
+    // Get User's infomation
+    axios
+      .post("http://localhost:3000/getUsersTop/getMe/", params, config)
+      .then((result) => {
+        setUserInformation(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsError(true);
+      });
 
     // Get top Artists
     axios
@@ -69,14 +80,17 @@ const PersonalityPage = (props) => {
           });
       })
       .catch((err) => {
+        console.log("Error: ", err);
         setIsError(true);
         document.cookie =
           "accessToken=; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
         console.log(err);
       });
-
-
   }, [props.token]);
+
+  const handlePersonalityData = (data) => {
+    setPersonalityData(data);
+  }
 
   return (
     <Fragment>
@@ -87,6 +101,8 @@ const PersonalityPage = (props) => {
           topArtists={topArtists}
           topSongs={topSongs}
           audioAnalysis={audioAnalysis}
+          userInformation={userInformation}
+          onPersonalityAnalysis={handlePersonalityData}
         />
       )}
     </Fragment>
