@@ -8,6 +8,7 @@
     <script>
       window.onload = function() {
       let value = document.location.hash;
+        console.log("xd");
       var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
       let match = value.match(cookiestring);
       if (match) {
