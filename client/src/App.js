@@ -26,18 +26,6 @@ const App = () => {
     } else return false;
   };
 
-  const setCookieFromUrl = () => {
-    let value = document.location.hash;
-    var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
-    let match = value.match(cookiestring);
-    if (match) {
-      let cookie = value.match(cookiestring)[0].replace("access_token=", "");
-      const cookies = new Cookies();
-      cookies.set("accessToken", cookie, { path: "/" });
-      window.location = "https://thealf154.github.io/spotify-personality/";
-    }
-  };
-
   useEffect(() => {
     //setCookieFromUrl();
     let token = cookieParser("accessToken");
