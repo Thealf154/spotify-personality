@@ -7,6 +7,8 @@ var cookieParser = require("cookie-parser");
 /* Spotify api */
 //Node ENV variables
 const { clientId, clientSecret, scope, redirectUri } = require("../config");
+const productionLink = "https://thealf154.github.io/spotify-personality/";
+const devLink = "http://localhost:3000";
 
 /**
  * Generates a random string containing numbers and letters
@@ -98,10 +100,15 @@ app.get("/callback", function (req, res) {
           console.log(body);
         });
 
-        res.cookie("accessToken", access_token, {httpOnly: true, withCredentials: true, credentials: 'include', sameSite: 'none', domain: "https://thealf154.github.io/spotify-personality/"});
+        res.cookie("accessToken", access_token, {
+          httpOnly: true,
+          withCredentials: true,
+          credentials: "include",
+          sameSite: "none",
+        });
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "https://thealf154.github.io/spotify-personality/" +
+          productionLink +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
