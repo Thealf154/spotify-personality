@@ -100,14 +100,13 @@ app.get("/callback", function (req, res) {
 
         res.cookie("accessToken", access_token, {httpOnly: true, withCredentials: true, credentials: 'include', sameSite: 'none', domain: "https://thealf154.github.io/spotify-personality/"});
         // we can also pass the token to the browser to make requests from there
-        /*res.redirect(
+        res.redirect(
           "https://thealf154.github.io/spotify-personality/" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
             })
-        );*/
-        res.redirect("https://thealf154.github.io/spotify-personality/");
+        );
       } else {
         res.redirect(
           "/#" +
