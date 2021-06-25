@@ -50,14 +50,7 @@ const App = () => {
       var headers = new Headers();
       headers.append("Content-Type", "application/json");
       headers.append("Accept", "application/json");
-
-      return fetch("https://boiling-reaches-39573.herokuapp.com/auth/callback", {
-        method: "GET",
-        mode: "same-origin",
-        redirect: "follow",
-        credentials: "include", // Don't forget to specify this if you need cookies
-        headers: headers,
-      });
+      
     }
   }, []);
 
