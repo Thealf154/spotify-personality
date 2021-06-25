@@ -97,8 +97,7 @@ app.get("/callback", function (req, res) {
         request.get(options, function (error, response, body) {
           console.log(body);
         });
-
-        res.cookie("accessToken", access_token, {httpOnly: true, withCredentials: true, credentials: 'include', sameSite: 'none'});
+        res.setHeader('Set-Cookie','accessToken=' + 'access_token; Max-Age=3000; HttpOnly, Secure');
 
         // we can also pass the token to the browser to make requests from there
         /*res.redirect(
