@@ -18,7 +18,6 @@ const PersonalityPage = (props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log("request");
     const params = new URLSearchParams();
     params.append("accessToken", props.token);
     const config = {
