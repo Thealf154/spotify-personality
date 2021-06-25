@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404</title>
     <script>
+      window.onload = function() {
       let value = document.location.hash;
       var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
       let match = value.match(cookiestring);
@@ -15,6 +16,8 @@
         cookies.set("accessToken", cookie, { path: "/" });
         window.location = "https://thealf154.github.io/spotify-personality/";
       }
+};
+      
     </script>
   </head>
   <body></body>
