@@ -28,14 +28,14 @@ const App = () => {
 
   const setCookieFromUrl = () => {
     let value = document.location.hash;
-    var cookiestring = RegExp("access_token"+ "=[a-zA-Z0-9_-]*");
+    var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
     let match = value.match(cookiestring);
     if (match) {
       let cookie = value.match(cookiestring)[0].replace("access_token=", "");
       const cookies = new Cookies();
       cookies.set("accessToken", cookie, { path: "/" });
-      window.location = "https://thealf154.github.io/spotify-personality/"
-    } 
+      window.location = "https://thealf154.github.io/spotify-personality/";
+    }
   };
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const App = () => {
     }
   };
 
-  return <FirstPage isLoggedIn={isLoggedIn} />;
+  return (<FirstPage isLoggedIn={isLoggedIn} />);
 };
 
 export default App;
