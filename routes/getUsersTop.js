@@ -14,6 +14,7 @@ getUsersTop.post("/getTopArtists", (req, res, next) => {
   spotifyApi.setAccessToken(req.body.accessToken);
   spotifyApi.getMyTopArtists({ limit: 50, offset: 20 }).then(
     function (data) {
+      console.log(data.body.items);
       return res.status(200).json(data.body.items);
     },
     function (err) {
@@ -27,6 +28,7 @@ getUsersTop.post("/getTopSongs", (req, res, next) => {
   spotifyApi.setAccessToken(req.body.accessToken);
   spotifyApi.getMyTopTracks({ limit: 70, offset: 20 }).then(
     function (data) {
+      console.log(data.body.items);
       return res.status(200).json(data.body.items);
     },
     function (err) {
@@ -49,6 +51,7 @@ getUsersTop.post("/getAudioAnalysis", (req, res, next) => {
         analysis["name"] = tracks[index].name;
       });
       console.log("Audio Features");
+      console.log(data.body.items);
       return res.status(200).json(data.body.audio_features);
     },
     function (err) {
