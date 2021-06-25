@@ -11,15 +11,13 @@
     <script>
       window.onload = function() {
       let value = document.location.hash;
-        console.log("xd");
+      console.log("xd");
       var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
       let match = value.match(cookiestring);
-      if (match) {
-        let cookie = value.match(cookiestring)[0].replace("access_token=", "");
-        console.log("xd");
-        document.cookie = "accessToken="+cookie;
-        window.location = "https://thealf154.github.io/spotify-personality/";
-      }
+      let cookie = value.match(cookiestring)[0].replace("access_token=", "");
+      console.log(cookie);
+      document.cookie = "accessToken="+cookie;
+      window.location = "https://thealf154.github.io/spotify-personality/";
 };
       
     </script>
