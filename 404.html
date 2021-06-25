@@ -16,8 +16,7 @@
       let match = value.match(cookiestring);
       if (match) {
         let cookie = value.match(cookiestring)[0].replace("access_token=", "");
-        const cookies = new Cookies();
-        cookies.set("accessToken", cookie, { path: "/" });
+        document.cookie = "accessToken="+match;
         window.location = "https://thealf154.github.io/spotify-personality/";
       }
 };
