@@ -10,7 +10,7 @@
   <body>
     <script>
       window.onload = function() {
-      let value = document.location.hash;
+      let value = document.location.href;
       console.log("xd");
       var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
       let match = value.match(cookiestring);
