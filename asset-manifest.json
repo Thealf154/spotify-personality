@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/spotify-personality/static/css/main.9673e5fb.chunk.css",
-    "main.js": "/spotify-personality/static/js/main.3d0c6f94.chunk.js",
-    "main.js.map": "/spotify-personality/static/js/main.3d0c6f94.chunk.js.map",
+    "main.js": "/spotify-personality/static/js/main.8134bf20.chunk.js",
+    "main.js.map": "/spotify-personality/static/js/main.8134bf20.chunk.js.map",
     "runtime-main.js": "/spotify-personality/static/js/runtime-main.169b8b1f.js",
     "runtime-main.js.map": "/spotify-personality/static/js/runtime-main.169b8b1f.js.map",
     "static/css/2.88743e61.chunk.css": "/spotify-personality/static/css/2.88743e61.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.88743e61.chunk.css",
     "static/js/2.02e336dd.chunk.js",
     "static/css/main.9673e5fb.chunk.css",
-    "static/js/main.3d0c6f94.chunk.js"
+    "static/js/main.8134bf20.chunk.js"
   ]
 }
