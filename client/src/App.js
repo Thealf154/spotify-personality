@@ -39,7 +39,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    setCookieFromUrl();
+    //setCookieFromUrl();
     let token = cookieParser("accessToken");
     setToken(token);
     // Use API to get information if the token is available
@@ -47,6 +47,17 @@ const App = () => {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
+      var headers = new Headers();
+      headers.append("Content-Type", "application/json");
+      headers.append("Accept", "application/json");
+
+      return fetch("https://boiling-reaches-39573.herokuapp.com/auth/callback", {
+        method: "GET",
+        mode: "same-origin",
+        redirect: "follow",
+        credentials: "include", // Don't forget to specify this if you need cookies
+        headers: headers,
+      });
     }
   }, []);
 
@@ -58,7 +69,7 @@ const App = () => {
     }
   };
 
-  return (<FirstPage isLoggedIn={isLoggedIn} />);
+  return <FirstPage isLoggedIn={isLoggedIn} />;
 };
 
 export default App;
