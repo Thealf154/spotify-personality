@@ -97,8 +97,8 @@ app.get("/callback", function (req, res) {
         request.get(options, function (error, response, body) {
           console.log(body);
         });
-        res.setHeader('Set-Cookie','accessToken=' + access_token + '; Max-Age=3000; HttpOnly, Secure');
 
+        res.cookie("accessToken", access_token, {httpOnly: true, withCredentials: true, credentials: 'include', sameSite: 'none', domain: "https://thealf154.github.io/spotify-personality/"});
         // we can also pass the token to the browser to make requests from there
         /*res.redirect(
           "https://thealf154.github.io/spotify-personality/" +
@@ -108,7 +108,6 @@ app.get("/callback", function (req, res) {
             })
         );*/
         res.redirect("https://thealf154.github.io/spotify-personality/");
-        res.cookie("accessToken", access_token, {httpOnly: true, withCredentials: true, credentials: 'include', sameSite: 'none'});
       } else {
         res.redirect(
           "/#" +
