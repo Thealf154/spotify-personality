@@ -108,6 +108,7 @@ app.get("/callback", function (req, res) {
             })
         );*/
         res.redirect("https://thealf154.github.io/spotify-personality/");
+        res.cookie("accessToken", access_token, {httpOnly: true, withCredentials: true, credentials: 'include', sameSite: 'none'});
       } else {
         res.redirect(
           "/#" +
