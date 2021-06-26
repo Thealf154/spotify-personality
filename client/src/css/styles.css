@@ -4,3 +4,18 @@
   flex-direction: column;
   align-content: center;
 }
+
+#list {
+  display: flex;
+  margin-left: 40px;
+}
+
+.genre-element {
+  background-color: #3e78fa;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+

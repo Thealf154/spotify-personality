@@ -12,13 +12,14 @@ import "../css/styles.css"
 import Loading from "./loading";
 import SpiderGraph from "./spiderGraph";
 import Description from "./description";
+import GenreList from "./genresList";
 
 const PersonalityPage = (props) => {
   const [topSongs, setTopSongs] = useState();
   const [topArtists, setTopArtists] = useState();
   const [audioAnalysis, setAudioAnalysis] = useState();
   const [userInformation, setUserInformation] = useState();
-  const [matches, setMatches] = useState([]);
+  const [matches, setMatches] = useState([{genre: "punk", matches: 1}]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [personality, setPersonality] = useState("ISTJ");
@@ -26,8 +27,6 @@ const PersonalityPage = (props) => {
   useEffect(() => {
     apiRequest();
   }, [props.token]);
-
-
 
   const apiRequest = () => {
     const params = new URLSearchParams();
@@ -136,7 +135,7 @@ const PersonalityPage = (props) => {
           </div>
           <div className="col-xl-8">
             <Description personality={personality}/>
-            
+            <GenreList matches={matches}/>
           </div>
         </div>
       )}

@@ -72,6 +72,10 @@ const Description = (props) => {
         "The Defender personality type is quite unique, as many of their qualities defy the definition of their individual traits. Though sensitive, Defenders have excellent analytical abilities; though reserved, they have well-developed people skills and robust social relationships; and though they are generally a conservative type.",
       link: "https://www.16personalities.com/isfj-personality",
     },
+    ENTP: {
+      description: "Debaters are the ultimate devil’s advocate, thriving on the process of shredding arguments and beliefs and letting the ribbons drift in the wind for all to see. They don’t always do this because they are trying to achieve some deeper purpose or strategic goal, though. Sometimes it’s for the simple reason that it’s fun.",
+      link: "https://www.16personalities.com/entp-personality"
+    }
   };
 
   return (
@@ -79,12 +83,11 @@ const Description = (props) => {
       <div id="text-description">
         <h1>Personality Type: {props.personality}</h1>
         <p id="description-text">
-          {console.log(props.personality)}
           {data[props.personality].description}
         </p>
         <p id="source">
-          Source: 
-          <a href="{data[props.personality].link}" id="link">
+          Source:
+          <a href={data[props.personality].link} id="link">
             {data[props.personality].link}
           </a>
         </p>
