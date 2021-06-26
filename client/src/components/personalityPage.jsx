@@ -4,20 +4,32 @@ import { React, useEffect, useState, Fragment } from "react";
 import axios from "axios";
 import qs from "qs";
 
+//CSS
+import "../css/bootstrapOverule.css";
+import "../css/styles.css"
+
 // Components
 import Loading from "./loading";
 import SpiderGraph from "./spiderGraph";
+import Description from "./description";
 
 const PersonalityPage = (props) => {
   const [topSongs, setTopSongs] = useState();
   const [topArtists, setTopArtists] = useState();
   const [audioAnalysis, setAudioAnalysis] = useState();
   const [userInformation, setUserInformation] = useState();
-  const [personalityData, setPersonalityData] = useState();
+  const [matches, setMatches] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [personality, setPersonality] = useState("ISTJ");
 
   useEffect(() => {
+    apiRequest();
+  }, [props.token]);
+
+
+
+  const apiRequest = () => {
     const params = new URLSearchParams();
     params.append("accessToken", props.token);
     const config = {
@@ -27,7 +39,11 @@ const PersonalityPage = (props) => {
     };
     // Get User's infomation
     axios
-      .post("https://boiling-reaches-39573.herokuapp.com/getMe/", params, config)
+      .post(
+        "https://boiling-reaches-39573.herokuapp.com/getMe/",
+        params,
+        config
+      )
       .then((result) => {
         setUserInformation(result);
       })
@@ -38,7 +54,11 @@ const PersonalityPage = (props) => {
 
     // Get top Artists
     axios
-      .post("https://boiling-reaches-39573.herokuapp.com/getUsersTop/getTopArtists/", params, config)
+      .post(
+        "https://boiling-reaches-39573.herokuapp.com/getUsersTop/getTopArtists/",
+        params,
+        config
+      )
       .then((result) => {
         setTopArtists(result);
       })
@@ -49,7 +69,11 @@ const PersonalityPage = (props) => {
 
     //Get Top Songs
     axios
-      .post("https://boiling-reaches-39573.herokuapp.com/getUsersTop/getTopSongs/", params, config)
+      .post(
+        "https://boiling-reaches-39573.herokuapp.com/getUsersTop/getTopSongs/",
+        params,
+        config
+      )
       .then((songs) => {
         setTopSongs(songs);
         let request = {};
@@ -84,10 +108,14 @@ const PersonalityPage = (props) => {
         setIsError(true);
         console.log(err);
       });
-  }, [props.token]);
+  };
 
-  const handlePersonalityData = (data) => {
-    setPersonalityData(data);
+  const handleMatches = (data) => {
+    setMatches(data);
+  };
+
+  const personalityType = (personality) => {
+    setPersonality(personality);
   };
 
   return (
@@ -102,11 +130,13 @@ const PersonalityPage = (props) => {
               topSongs={topSongs}
               audioAnalysis={audioAnalysis}
               userInformation={userInformation}
-              onPersonalityAnalysis={handlePersonalityData}
+              onMatches={handleMatches}
+              onPersonalityType={personalityType}
             />
           </div>
           <div className="col-xl-8">
-            {JSON.stringify(personalityData)}
+            <Description personality={personality}/>
+            
           </div>
         </div>
       )}

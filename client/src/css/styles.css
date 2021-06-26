@@ -1,0 +1,6 @@
+#text-description {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}

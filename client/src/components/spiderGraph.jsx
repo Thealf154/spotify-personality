@@ -238,7 +238,9 @@ const SpiderGraph = (props) => {
 
     usersData[0]["data"] = rawData;
     setData(usersData);
-    props.onPersonalityAnalysis(genresCount);
+
+    props.onMatches(genresCount);
+    props.onPersonalityType(personalityType);
 
     setIsLoading(false);
   }, [props.topArtists]);

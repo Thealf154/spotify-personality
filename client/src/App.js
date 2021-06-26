@@ -1,7 +1,6 @@
 // Dependencies
 import { React, useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cookies from "universal-cookie";
 
 // Components
 import HomePage from "./components/homePage";
