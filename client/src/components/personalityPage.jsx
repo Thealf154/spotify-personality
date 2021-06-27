@@ -6,20 +6,68 @@ import qs from "qs";
 
 //CSS
 import "../css/bootstrapOverule.css";
-import "../css/styles.css"
+import "../css/styles.css";
 
 // Components
 import Loading from "./loading";
 import SpiderGraph from "./spiderGraph";
 import Description from "./description";
 import GenreList from "./genresList";
+import YourThingSongs from "./yourThingSongs";
 
 const PersonalityPage = (props) => {
-  const [topSongs, setTopSongs] = useState();
+  const [topSongs, setTopSongs] = useState([
+    {
+      album: {
+        album_type: "SINGLE",
+        artists: [
+          {
+            href: "https://api.spotify.com/v1/artists/5RR0MLwcjc87wjSw2JYdwx",
+            id: "5RR0MLwcjc87wjSw2JYdwx",
+            name: "MOMOLAND",
+            type: "artist",
+            uri: "spotify:artist:5RR0MLwcjc87wjSw2JYdwx",
+          },
+        ],
+      },
+      images: [
+        {
+          height: 640,
+          url: "https://i.scdn.co/image/ab67616d0000b273a5bb4ef1ca42f4378d815c7c",
+          width: 640,
+        },
+      ],
+      name: "BBoom BBoom",
+    },
+  ]);
+  const [topFiveSongs, setTopFiveSongs] = useState([
+    {
+      album: {
+        album_type: "SINGLE",
+        artists: [
+          {
+            href: "https://api.spotify.com/v1/artists/5RR0MLwcjc87wjSw2JYdwx",
+            id: "5RR0MLwcjc87wjSw2JYdwx",
+            name: "MOMOLAND",
+            type: "artist",
+            uri: "spotify:artist:5RR0MLwcjc87wjSw2JYdwx",
+          },
+        ],
+      },
+      images: [
+        {
+          height: 640,
+          url: "https://i.scdn.co/image/ab67616d0000b273a5bb4ef1ca42f4378d815c7c",
+          width: 640,
+        },
+      ],
+      name: "BBoom BBoom",
+    },
+  ]);
   const [topArtists, setTopArtists] = useState();
   const [audioAnalysis, setAudioAnalysis] = useState();
   const [userInformation, setUserInformation] = useState();
-  const [matches, setMatches] = useState([{genre: "punk", matches: 1}]);
+  const [matches, setMatches] = useState([{ genre: "punk", matches: 1 }]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [personality, setPersonality] = useState("ISTJ");
@@ -66,6 +114,22 @@ const PersonalityPage = (props) => {
         setIsError(true);
       });
 
+    // Get top 5 Songs
+    params.append("number", 5);
+    axios
+      .post(
+        "https://boiling-reaches-39573.herokuapp.com/getUsersTop/getTopSongs/",
+        params,
+        config
+      )
+      .then((songs) => {
+        setTopFiveSongs(songs);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsError(true);
+      });
+
     //Get Top Songs
     axios
       .post(
@@ -105,7 +169,8 @@ const PersonalityPage = (props) => {
       .catch((err) => {
         console.log("Error: ", err);
         setIsError(true);
-        console.log(err);
+        document.cookie =
+          "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
       });
   };
 
@@ -134,8 +199,9 @@ const PersonalityPage = (props) => {
             />
           </div>
           <div className="col-xl-8">
-            <Description personality={personality}/>
-            <GenreList matches={matches}/>
+            <Description personality={personality} />
+            <GenreList matches={matches} />
+            <YourThingSongs songs={topFiveSongs} />
           </div>
         </div>
       )}
