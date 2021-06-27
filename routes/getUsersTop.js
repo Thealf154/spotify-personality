@@ -26,7 +26,8 @@ getUsersTop.post("/getTopArtists", (req, res, next) => {
 
 getUsersTop.post("/getTopSongs", (req, res, next) => {
   spotifyApi.setAccessToken(req.body.accessToken);
-  spotifyApi.getMyTopTracks({ limit: 70, offset: 20 }).then(
+  let number = req.body.limit || 70;
+  spotifyApi.getMyTopTracks({ limit: number, offset: 20 }).then(
     function (data) {
       console.log(data.body.items);
       return res.status(200).json(data.body.items);
