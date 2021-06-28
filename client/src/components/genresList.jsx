@@ -29,7 +29,7 @@ const GenreList = (props) => {
 
   const list = availableGenres().map((element) => (
     <div className="genre-element">
-      {emojis[element.genre]} {element.genre}: {element.matches}
+      {emojis[element.genre]} {element.genre}: {element.matches} {element.matches > 1 ? "songs" : "song"}
     </div>
   ));
 

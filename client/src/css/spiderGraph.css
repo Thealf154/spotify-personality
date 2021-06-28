@@ -1,5 +1,6 @@
 #personality-type {
-    font-size: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #analysis-container {
@@ -7,4 +8,15 @@
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  margin-top: 20px;
+}
+
+.caption {
+  text-shadow: none !important;
+  fill: white;
+  font-size: 20px;
+}
+
+.scale {
+  fill: #51c58c !important;
 }

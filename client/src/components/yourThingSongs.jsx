@@ -22,14 +22,18 @@ const YourThingSongs = (props) => {
 
   const gallery = topSongs().map((element) => (
     <div className="album-card">
-      <img id="album-cover" src={element.cover} />
+      <img className="album-cover" src={element.cover} width="150" />
       <p className="album-track">{element.name}</p>
-      <h3 className="album-title">{element.album}</h3>
-      <p className="album-artist">{element.artist}</p>
+      <p className="album-title">{element.album}</p>
     </div>
   ));
 
-  return <div id="album-gallery">{gallery}</div>;
+  return (
+    <div id="your-thing-songs">
+      <h2>Your favourite songs:</h2>
+      <div id="album-gallery">{gallery}</div>
+    </div>
+  );
 };
 
 export default YourThingSongs;

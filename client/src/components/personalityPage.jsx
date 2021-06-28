@@ -1,6 +1,7 @@
 // Dependencies
 import "bootstrap/dist/css/bootstrap.min.css";
 import { React, useEffect, useState, Fragment } from "react";
+import { Github } from "react-bootstrap-icons";
 import axios from "axios";
 import qs from "qs";
 
@@ -170,7 +171,7 @@ const PersonalityPage = (props) => {
         console.log("Error: ", err);
         setIsError(true);
         document.cookie =
-          "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+          "username=accessToken; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
       });
   };
 
@@ -198,10 +199,11 @@ const PersonalityPage = (props) => {
               onPersonalityType={personalityType}
             />
           </div>
-          <div className="col-xl-8">
+          <div className="col-xl-8" id="users-results">
             <Description personality={personality} />
             <GenreList matches={matches} />
             <YourThingSongs songs={topFiveSongs} />
+            <a href="https://github.com/Thealf154/spotify-personality" style={{color : "white"}}><Github size={30} color="white" id="git-logo"/>See this project on Github</a>
           </div>
         </div>
       )}

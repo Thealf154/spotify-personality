@@ -1,0 +1,69 @@
+#log-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  word-wrap: break-word;
+}
+
+#title {
+  font-size: 5rem;
+}
+
+#warning-text {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+#log-in-button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #51c58c;
+  border-radius: 20px;
+  margin-top: 20px;
+  border-color: #51c58c;
+}
+
+#information-container {
+  background-color: #51c58c;
+  z-index: 1;
+  margin: 10rem;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+#log-in-container {
+  z-index: -1;
+}
+
+.section {
+  color: #292929;
+  margin-top: 10px;
+}
+
+.section-text {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+#source-link {
+  color: white;
+}
+
+#author {
+  font-size: 1.45rem;
+}
+
+a{
+    color: #51c58c;
+    text-align: end;
+  font-size: 1.2rem;
+}
+
+#git {
+    text-align: end;
+    bottom: 0;
+}

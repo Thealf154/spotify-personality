@@ -13,14 +13,15 @@ const SpiderGraph = (props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const options = {
-    captionMargin: 30,
+    captionMargin: 50,
     scales: 4,
     captionProps: () => ({
       className: "caption",
       textAnchor: "middle",
-      fontSize: 15,
+      fontSize: 17,
       fontFamily: "sans-serif",
     }),
+   scaleProps: () => ({ className: 'scale', fill: '#51c58c' }),
   };
   // What type of people love this genre?
   const genresPersonality = {
@@ -245,6 +246,7 @@ const SpiderGraph = (props) => {
     setIsLoading(false);
   }, [props.topArtists]);
 
+
   return (
     <div>
       {isLoading ? (
@@ -254,14 +256,14 @@ const SpiderGraph = (props) => {
           <RadarChart
             captions={captions}
             data={data}
-            size={500}
+            size={550}
             options={options}
           />
-          <p id="personality-type">Personality: {personalityType}</p>
-          <p id>Mind: {parseFloat(rawData.mind).toFixed(3)}</p>
-          <p id>Energy: {parseFloat(rawData.energy).toFixed(3)}</p>
-          <p id>Nature: {parseFloat(rawData.nature).toFixed(3)}</p>
-          <p id>Tactics: {parseFloat(rawData.tactics).toFixed(3)}</p>
+          <p id="personality-type">Personality: {personalityType} </p>
+          <p>{captions.mind}: {parseFloat(rawData.mind * 100).toFixed(1)} %</p>
+          <p>{captions.energy}: {parseFloat(rawData.energy * 100).toFixed(1)} %</p>
+          <p>{captions.nature}: {parseFloat(rawData.nature * 100).toFixed(1)} %</p>
+          <p>{captions.tactics}: {parseFloat(rawData.tactics * 100).toFixed(1)} %</p>
         </div>
       )}
     </div>

@@ -73,18 +73,17 @@ const Description = (props) => {
       link: "https://www.16personalities.com/isfj-personality",
     },
     ENTP: {
-      description: "Debaters are the ultimate devil’s advocate, thriving on the process of shredding arguments and beliefs and letting the ribbons drift in the wind for all to see. They don’t always do this because they are trying to achieve some deeper purpose or strategic goal, though. Sometimes it’s for the simple reason that it’s fun.",
-      link: "https://www.16personalities.com/entp-personality"
-    }
+      description:
+        "Debaters are the ultimate devil’s advocate, thriving on the process of shredding arguments and beliefs and letting the ribbons drift in the wind for all to see. They don’t always do this because they are trying to achieve some deeper purpose or strategic goal, though. Sometimes it’s for the simple reason that it’s fun.",
+      link: "https://www.16personalities.com/entp-personality",
+    },
   };
 
   return (
     <div className="row">
-      <div id="text-description">
+      <div id="description">
         <h1>Personality Type: {props.personality}</h1>
-        <p id="description-text">
-          {data[props.personality].description}
-        </p>
+        <p id="description-text">"{data[props.personality].description}"</p>
         <p id="source">
           Source:
           <a href={data[props.personality].link} id="link">
