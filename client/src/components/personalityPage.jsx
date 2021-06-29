@@ -1,13 +1,14 @@
 // Dependencies
-import "bootstrap/dist/css/bootstrap.min.css";
 import { React, useEffect, useState, Fragment } from "react";
 import { Github } from "react-bootstrap-icons";
 import axios from "axios";
 import qs from "qs";
 
 //CSS
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/bootstrapOverule.css";
 import "../css/styles.css";
+import "reactjs-popup/dist/index.css";
 
 // Components
 import Loading from "./loading";
@@ -183,13 +184,14 @@ const PersonalityPage = (props) => {
     setPersonality(personality);
   };
 
+
   return (
     <Fragment>
       {isLoading ? (
         <Loading />
       ) : (
         <div className="row">
-          <div className="col-xl-4">
+          <div className="col-xl-4" id="spider-graph">
             <SpiderGraph
               topArtists={topArtists}
               topSongs={topSongs}
@@ -203,7 +205,13 @@ const PersonalityPage = (props) => {
             <Description personality={personality} />
             <GenreList matches={matches} />
             <YourThingSongs songs={topFiveSongs} />
-            <a href="https://github.com/Thealf154/spotify-personality" style={{color : "white"}}><Github size={30} color="white" id="git-logo"/>See this project on Github</a>
+            <a
+              href="https://github.com/Thealf154/spotify-personality"
+              style={{ color: "white" }}
+            >
+              <Github size={30} color="white" id="git-logo" />
+              See this project on Github
+            </a>
           </div>
         </div>
       )}

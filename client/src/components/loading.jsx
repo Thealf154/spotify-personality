@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Loading = () => {
   return (
     <Fragment>
-      <div id="row" >
-        <Spinner animation="grow" variant="success"/>
+      <div className="row" id="loading">
+        <Spinner animation="grow" variant="success" size={"xl"}/>
         <p>Loading...</p>
         <p>Wait until the API responds</p>
       </div>

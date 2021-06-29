@@ -1,3 +1,6 @@
+#source {
+  font-size: 1rem;
+}
 #users-results {
   padding: 45px;
   padding-top: 70px;
@@ -61,6 +64,24 @@
   font-weight: bold;
 }
 
-#git-logo{
+#git-logo {
   margin-right: 10px;
+}
+
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#loading > p{
+  color: #51c58c;
+  font-size: 3rem;
+}
+
+.spinner-grow.text-success{
+  margin: 32px;
+  width: 5rem !important;
+  height: 5rem !important;
 }

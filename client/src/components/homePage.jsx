@@ -1,7 +1,7 @@
 // Dependencies
 import { React, useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { X} from "react-bootstrap-icons";
+import { X } from "react-bootstrap-icons";
 import "../css/homePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -47,7 +47,7 @@ const HomePage = (props) => {
         This is not a real personality test, don't take it seriously!
       </p>
       <p id="author">This project was made by: Alfredo Vanegas Arcega</p>
-      <a href="" onClick={() => setIsActive("flex")}>
+      <a href="" id="learn" onClick={() => setIsActive("flex")}>
         Want to learn more about this? Click me!
       </a>
       <Button

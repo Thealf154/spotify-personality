@@ -57,13 +57,17 @@
   font-size: 1.45rem;
 }
 
-a{
-    color: #51c58c;
-    text-align: end;
+#learn {
+  color: #51c58c;
+  text-align: end;
   font-size: 1.2rem;
 }
 
 #git {
-    text-align: end;
-    bottom: 0;
+  text-align: end;
+  bottom: 0;
+}
+
+a {
+  color: #51c58c;
 }
