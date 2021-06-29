@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/spotify-personality/static/css/main.d7a0dff0.chunk.css",
-    "main.js": "/spotify-personality/static/js/main.a407ca08.chunk.js",
-    "main.js.map": "/spotify-personality/static/js/main.a407ca08.chunk.js.map",
-    "runtime-main.js": "/spotify-personality/static/js/runtime-main.e5538d3e.js",
-    "runtime-main.js.map": "/spotify-personality/static/js/runtime-main.e5538d3e.js.map",
+    "main.css": "/spotify-personality/static/css/main.b86bdcd4.chunk.css",
+    "main.js": "/spotify-personality/static/js/main.63cd2f1e.chunk.js",
+    "main.js.map": "/spotify-personality/static/js/main.63cd2f1e.chunk.js.map",
+    "runtime-main.js": "/spotify-personality/static/js/runtime-main.838a1ac3.js",
+    "runtime-main.js.map": "/spotify-personality/static/js/runtime-main.838a1ac3.js.map",
     "static/css/2.b60d6f5a.chunk.css": "/spotify-personality/static/css/2.b60d6f5a.chunk.css",
-    "static/js/2.a06f2caf.chunk.js": "/spotify-personality/static/js/2.a06f2caf.chunk.js",
-    "static/js/2.a06f2caf.chunk.js.map": "/spotify-personality/static/js/2.a06f2caf.chunk.js.map",
-    "static/js/3.138bfd74.chunk.js": "/spotify-personality/static/js/3.138bfd74.chunk.js",
-    "static/js/3.138bfd74.chunk.js.map": "/spotify-personality/static/js/3.138bfd74.chunk.js.map",
+    "static/js/2.c619895d.chunk.js": "/spotify-personality/static/js/2.c619895d.chunk.js",
+    "static/js/2.c619895d.chunk.js.map": "/spotify-personality/static/js/2.c619895d.chunk.js.map",
+    "static/js/3.86bbd6e9.chunk.js": "/spotify-personality/static/js/3.86bbd6e9.chunk.js",
+    "static/js/3.86bbd6e9.chunk.js.map": "/spotify-personality/static/js/3.86bbd6e9.chunk.js.map",
     "index.html": "/spotify-personality/index.html",
     "static/css/2.b60d6f5a.chunk.css.map": "/spotify-personality/static/css/2.b60d6f5a.chunk.css.map",
-    "static/css/main.d7a0dff0.chunk.css.map": "/spotify-personality/static/css/main.d7a0dff0.chunk.css.map",
-    "static/js/2.a06f2caf.chunk.js.LICENSE.txt": "/spotify-personality/static/js/2.a06f2caf.chunk.js.LICENSE.txt"
+    "static/css/main.b86bdcd4.chunk.css.map": "/spotify-personality/static/css/main.b86bdcd4.chunk.css.map",
+    "static/js/2.c619895d.chunk.js.LICENSE.txt": "/spotify-personality/static/js/2.c619895d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e5538d3e.js",
+    "static/js/runtime-main.838a1ac3.js",
     "static/css/2.b60d6f5a.chunk.css",
-    "static/js/2.a06f2caf.chunk.js",
-    "static/css/main.d7a0dff0.chunk.css",
-    "static/js/main.a407ca08.chunk.js"
+    "static/js/2.c619895d.chunk.js",
+    "static/css/main.b86bdcd4.chunk.css",
+    "static/js/main.63cd2f1e.chunk.js"
   ]
 }
