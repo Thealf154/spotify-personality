@@ -6,7 +6,7 @@ import "../css/homePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const HomePage = (props) => {
-  const [isActive, setIsActive] = useState();
+  const [isActive, setIsActive] = useState("");
 
   return (
     <div id="log-in-container">
