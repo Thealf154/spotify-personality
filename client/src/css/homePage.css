@@ -8,11 +8,11 @@
 }
 
 #title {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 #warning-text {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-top: 10px;
 }
 
@@ -25,33 +25,26 @@
   border-color: #51c58c;
 }
 
-#information-container {
-  background-color: #51c58c;
-  z-index: 1;
-  margin: 10rem;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
+.information-container {
+  padding-right: 60px;
+  text-align: justify;
 }
+
 
 #log-in-container {
   z-index: -1;
 }
 
 .section {
-  color: #292929;
-  margin-top: 10px;
+  color: #51c58c;
+  margin-top: 30px;
 }
 
 .section-text {
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 15px;
 }
 
-#source-link {
-  color: white;
-}
 
 #author {
   font-size: 1.45rem;

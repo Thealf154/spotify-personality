@@ -39,7 +39,7 @@ const App = () => {
       headers.append("Accept", "application/json");
       
     }
-  }, []);
+  }, [isLoggedIn]);
 
   const FirstPage = (props) => {
     if (props.isLoggedIn) {

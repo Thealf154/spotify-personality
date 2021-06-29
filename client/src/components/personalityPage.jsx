@@ -1,6 +1,8 @@
 // Dependencies
 import { React, useEffect, useState, Fragment } from "react";
 import { Github } from "react-bootstrap-icons";
+
+import { X } from "react-bootstrap-icons";
 import axios from "axios";
 import qs from "qs";
 
@@ -184,36 +186,70 @@ const PersonalityPage = (props) => {
     setPersonality(personality);
   };
 
-
   return (
     <Fragment>
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="row">
-          <div className="col-xl-4" id="spider-graph">
-            <SpiderGraph
-              topArtists={topArtists}
-              topSongs={topSongs}
-              audioAnalysis={audioAnalysis}
-              userInformation={userInformation}
-              onMatches={handleMatches}
-              onPersonalityType={personalityType}
-            />
+        <Fragment>
+          <div className="row">
+            <div className="col-xl-4" id="spider-graph">
+              <SpiderGraph
+                topArtists={topArtists}
+                topSongs={topSongs}
+                audioAnalysis={audioAnalysis}
+                userInformation={userInformation}
+                onMatches={handleMatches}
+                onPersonalityType={personalityType}
+              />
+            </div>
+            <div className="col-xl-8" id="users-results">
+              <Description personality={personality} />
+              <div className="container" className="information-container">
+                <h2 className="section">How do you guess my personality?</h2>
+                <p className="section-text">
+                  I use this study below as basis for the whole analysis. For
+                  every genre mentioned, I asign that genre to the type of
+                  personality with the highest percentage. For example: punk
+                  would belong to the INTP personality, and so on. Then the
+                  algorithm reads your top 50 songs of all time, and see what
+                  genre it belongs, and asign a point to the personality type
+                  that matches. And finally, substract the points for every
+                  letter of the personality type that contradicts itself (ex:
+                  Extroversion and Extraversion)
+                </p>
+                <p>
+                  Source:
+                  <a
+                    href="https://www.16personalities.com/articles/music-preferences-by-personality-type"
+                    id="source-link"
+                  >
+                    https://www.16personalities.com/articles/music-preferences-by-personality-type
+                  </a>
+                </p>
+              </div>
+              <GenreList matches={matches} />
+              <YourThingSongs songs={topFiveSongs} />
+              <a
+                href="https://github.com/Thealf154/spotify-personality"
+                style={{ color: "white" }}
+              >
+                <Github size={30} color="white" id="git-logo" />
+                See this project on Github
+              </a>
+
+              <div className="container" className="information-container">
+                <h2 className="section">Privacy</h2>
+                <p className="section-text">
+                  Altough this client conects to another server, I do not
+                  collect any data of you. I store a cookie to be able to conect
+                  to the Spotify API, but eventually it expires.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="col-xl-8" id="users-results">
-            <Description personality={personality} />
-            <GenreList matches={matches} />
-            <YourThingSongs songs={topFiveSongs} />
-            <a
-              href="https://github.com/Thealf154/spotify-personality"
-              style={{ color: "white" }}
-            >
-              <Github size={30} color="white" id="git-logo" />
-              See this project on Github
-            </a>
-          </div>
-        </div>
+          );
+        </Fragment>
       )}
     </Fragment>
   );
