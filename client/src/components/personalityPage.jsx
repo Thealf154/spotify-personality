@@ -248,7 +248,6 @@ const PersonalityPage = (props) => {
               </div>
             </div>
           </div>
-          );
         </Fragment>
       )}
     </Fragment>
