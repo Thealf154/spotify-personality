@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404</title>
+    
+  </head>
+  <body>
+    <script>
+      window.onload = function() {
+      let value = document.location.hash;
+      let value = document.location.href;
+      console.log("xd");
+      var cookiestring = RegExp("access_token" + "=[a-zA-Z0-9_-]*");
+      let match = value.match(cookiestring);
+        console.log(match);
+      let cookie = value.match(cookiestring)[0].replace("access_token=", "");
+      console.log(cookie);
+      document.cookie = "accessToken="+cookie;
+      window.location = "https://thealf154.github.io/spotify-personality/";
+};
+      
+    </script>
+  </body>
+</html>
